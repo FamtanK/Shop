@@ -1,0 +1,45 @@
+﻿<Page x:Class="Shop.PageApp.BusketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Shop.PageApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BusketPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1">
+            <ListView x:Name="lvProducts" SelectionChanged="lvProducts_SelectionChanged" Height="447">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel ToolTip="{Binding Name}">
+                            <Image Source="{Binding Image}" Width="150" Height="150"/>
+                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding Cost}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0">
+            <ListView x:Name="lvBusket" Height="446">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel ToolTip="{Binding Name}">
+                            <Image Source="{Binding Image}" Width="60" Height="60"/>
+                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding Cost}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
